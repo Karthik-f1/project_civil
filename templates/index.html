@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}Home - Civil Structure Test Tech{% endblock %}
+{% block content %}
+<section class="hero text-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Advanced Testing Equipment for Safer Civil Structures</h1>
+    <p class="lead text-light mb-4">Precision solutions for structural engineers, geotechnical pros, and inspection teams across North America.</p>
+    <a href="{{ url_for('products') }}" class="btn btn-light btn-lg me-2"><i class="fas fa-cogs me-2"></i>Explore Products</a>
+    <a href="{{ url_for('services') }}" class="btn btn-outline-light btn-lg"><i class="fas fa-tools me-2"></i>Get Quote</a>
+  </div>
+</section>
+
+<div class="container mt-5">
+  <h2 class="mb-4 text-primary">Featured Products</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/static/images/product1.jpg" class="card-img-top" alt="Product 1">
+        <div class="card-body">
+          <h5 class="card-title">Hydraulic Load Frame</h5>
+          <p class="card-text small text-muted">High-capacity frames for lab and field testing of beams and slabs.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/static/images/product2.jpg" class="card-img-top" alt="Product 2">
+        <div class="card-body">
+          <h5 class="card-title">Ground Penetrating Radar</h5>
+          <p class="card-text small text-muted">Non-destructive subsurface imaging for rebar and void detection.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/static/images/product3.jpg" class="card-img-top" alt="Product 3">
+        <div class="card-body">
+          <h5 class="card-title">Digital Strain Gauges</h5>
+          <p class="card-text small text-muted">Precision strain monitoring for long-term structural health.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-5">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h3>Why choose Civil Structure Test Tech?</h3>
+      <ul>
+        <li>Field-ready equipment and turnkey solutions.</li>
+        <li>Committed North American B2B support and technical expertise.</li>
+        <li>Robust data and cloud-enabled monitoring options.</li>
+      </ul>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="/static/images/office.jpg" class="img-fluid rounded shadow-sm" alt="Office">
+    </div>
+  </div>
+</div>
+{% endblock %}
