@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+{% block title %}Civil Structure Test Tech — Commercial-Grade Civil Testers{% endblock %}
+{% block content %}
+<section class="hero text-center rounded">
+  <div class="container">
+    <h1 class="display-5 fw-bold mb-3">Fast, Accurate Structural Testing for Any Jobsite</h1>
+    <p class="lead">Identify structural performance, subsurface risks, and material quality with user‑friendly, field‑ready testing systems.</p>
+    <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg me-2"><i class="fas fa-comments me-2"></i>Contact Us</a>
+    <a href="{{ url_for('catalog', cat_slug='load-testing') }}" class="btn btn-outline-light btn-lg"><i class="fas fa-cubes me-2"></i>Browse Products</a>
+  </div>
+</section>
+
+<section class="mt-5">
+  <div class="row g-4">
+    <div class="col-12">
+      <p class="mb-0">Structural failures and hidden defects create serious safety and cost risks. Our field‑ready and lab‑capable test systems deliver rapid, reliable insights without the need for complex lab setups. We focus exclusively on civil engineering needs—bridges, buildings, transportation, utilities, and foundations. Based in North America, Civil Structure Test Tech provides advanced load testing, NDT inspection, and geotechnical systems backed by responsive technical support and training.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <h2 class="h4">Our Advanced Offerings</h2>
+  <p>We supply our own solutions and select systems from trusted engineering partners to deliver reliable, high‑quality technologies, integration, and services.</p>
+  <div class="row g-4">
+    {% for item in featured %}
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <img src="{{ item.hero }}" class="card-img-top" alt="{{ item.title }}">
+        <div class="card-body">
+          <h3 class="h6">{{ item.title }}</h3>
+          <p class="small text-muted">{{ item.lead }}</p>
+          <a href="{{ url_for('product_detail', slug=item.slug) }}" class="btn btn-primary btn-sm">View Details</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="mt-5">
+  <h2 class="h4">Core Components of Civil Testing Systems</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h3 class="h6">Hardware</h3>
+          <ul class="small mb-0">
+            <li>Calibrated load cells, LVDTs, strain gauges, accelerometers</li>
+            <li>Hydraulic power packs and reaction frames</li>
+            <li>NDT instruments: GPR, UPV, covermeters</li>
+            <li>Rugged enclosures and field cabling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h3 class="h6">Software</h3>
+          <ul class="small mb-0">
+            <li>Real‑time dashboards and analytics</li>
+            <li>Field data logging and export (CSV/PDF/JSON)</li>
+            <li>Calibration and report templates</li>
+            <li>Threshold alerts for strain, displacement, vibration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h3 class="h6">Cloud Services</h3>
+          <ul class="small mb-0">
+            <li>Secure backup and remote access</li>
+            <li>Shareable compliance reports</li>
+            <li>APIs for BIM/CMMS/asset systems</li>
+            <li>Mobile dashboards for field teams</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <h2 class="h4">Key Features</h2>
+  <ul class="small">
+    <li>Rapid on‑site testing — actionable results in minutes to hours</li>
+    <li>High sensitivity sensors (strain, displacement, vibration, EM)</li>
+    <li>No lab required for many workflows — jobsite‑ready kits</li>
+    <li>Multi‑material coverage: concrete, steel, asphalt, soil, rock</li>
+    <li>Standards‑aligned methods (ASTM, ACI, AASHTO, IS)</li>
+  </ul>
+</section>
+
+<section class="mt-5">
+  <h2 class="h4">Common Use Cases</h2>
+  <div class="row small">
+    <div class="col-md-6">
+      <ul>
+        <li>Bridge proof‑load and service load response</li>
+        <li>Concrete quality assessment and rebar mapping</li>
+        <li>Structural retrofit validation and health monitoring</li>
+        <li>Pile, footing, and subgrade evaluation</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <ul>
+        <li>Construction QA/QC and commissioning</li>
+        <li>Post‑event inspection (seismic, flood, fire)</li>
+        <li>Preventive maintenance planning</li>
+        <li>Asset condition audits for owners</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <h2 class="h4">Integrations & Ecosystem</h2>
+  <ul class="small">
+    <li>Project information models (BIM)</li>
+    <li>Asset management systems and CMMS</li>
+    <li>GIS‑linked inspection workflows</li>
+    <li>Internal QA/QC and audit systems</li>
+  </ul>
+</section>
+
+<section class="mt-5">
+  <h2 class="h4">Industries Served</h2>
+  <p class="small mb-0">Transportation, Buildings, Water & Wastewater, Energy & Utilities, Industrial Sites, and Municipal Infrastructure.</p>
+</section>
+
+<section class="mt-5">
+  <h2 class="h4">Relevant Standards</h2>
+  <ul class="small">
+    <li>ASTM C597 (UPV), ASTM D1143/D1194 (pile/plate), ASTM E1316 (NDT terminology)</li>
+    <li>ACI 437 (load testing of concrete structures)</li>
+    <li>AASHTO guidelines for bridge evaluation</li>
+    <li>IS codes for geotechnical field tests</li>
+  </ul>
+</section>
+
+<section class="mt-5">
+  <h2 class="h4">Benefits of Choosing Civil Structure Test Tech</h2>
+  <div class="row small">
+    <div class="col-md-6">
+      <ul>
+        <li>Compliance‑ready workflows aligned to industry standards</li>
+        <li>Rapid deployment kits for scheduled or emergency work</li>
+        <li>Scalable systems for small teams and large programs</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <ul>
+        <li>Engineering‑led support and training</li>
+        <li>Rugged, field‑proven hardware and DAQ</li>
+        <li>Integrated reporting for owners and regulators</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <h2 class="h4">Applications</h2>
+  <div class="row small">
+    <div class="col-md-6">
+      <ul>
+        <li>Bridge and elevated roadway assessments</li>
+        <li>Building slab, beam, and column testing</li>
+        <li>Utility corridors and subsurface risk mapping</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <ul>
+        <li>Foundation bearing and modulus evaluation</li>
+        <li>Construction materials QA/QC</li>
+        <li>Long‑term structural health monitoring</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <h2 class="h4">Case Studies</h2>
+  <div class="row g-3 small">
+    <div class="col-md-4">
+      <div class="card h-100"><div class="card-body">
+        <h3 class="h6">Bridge Proof‑Load Validation (USA)</h3>
+        <p class="mb-0">A county agency validated bridge capacity using our load kits and DAQ, reducing lane closure time and targeting retrofit scope.</p>
+      </div></div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100"><div class="card-body">
+        <h3 class="h6">University Lab Curriculum (Canada)</h3>
+        <p class="mb-0">Civil students used UPV and covermeters to evaluate concrete specimens and correlate velocity with compressive strength.</p>
+      </div></div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100"><div class="card-body">
+        <h3 class="h6">Subgrade Modulus Study (India)</h3>
+        <p class="mb-0">A contractor deployed plate load testers to characterize subgrade stiffness for roadway design optimization.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5 text-center">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-2">Need help choosing the right tester?</h2>
+      <p class="small text-muted">Our engineers can help you scope sensors, DAQ, and reporting to match your project requirements.</p>
+      <a href="{{ url_for('contact') }}" class="btn btn-primary me-2">Contact Us</a>
+      <a href="{{ url_for('services') }}" class="btn btn-outline-primary">Request a Quote</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

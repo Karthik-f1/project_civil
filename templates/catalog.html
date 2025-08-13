@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}{{ category.name }} — Products | Civil Structure Test Tech{% endblock %}
+{% block content %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ category.name }}</li>
+  </ol>
+</nav>
+
+<div class="row">
+  <aside class="col-lg-3 mb-4 sidebar">
+    <div class="list-group">
+      {% for c in categories %}
+        <a class="list-group-item list-group-item-action {% if c.slug == category.slug %}active{% endif %}"
+           href="{{ url_for('catalog', cat_slug=c.slug) }}">{{ c.name }}</a>
+      {% endfor %}
+    </div>
+  </aside>
+  <section class="col-lg-9">
+    <h1 class="h3 mb-3">{{ category.name }}</h1>
+    <div class="row g-4">
+      {% for p in items %}
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ p.hero }}" class="card-img-top" alt="{{ p.title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ p.title }}</h5>
+            <p class="card-text small text-muted">{{ p.lead }}</p>
+            <a href="{{ url_for('product_detail', slug=p.slug) }}" class="btn btn-outline-primary btn-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock %}
