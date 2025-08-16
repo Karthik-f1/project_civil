@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Admin — Contacts{% endblock %}
+{% block content %}
+<h1 class="mb-3">Contact Messages</h1>
+<table class="table table-striped">
+  <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Subject</th><th>When</th></tr></thead>
+  <tbody>
+    {% for c in contacts %}
+    <tr><td>{{ c.id }}</td><td>{{ c.name }}</td><td>{{ c.email }}</td><td>{{ c.subject }}</td><td>{{ c.submitted_at }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

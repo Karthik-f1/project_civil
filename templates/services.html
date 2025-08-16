@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Services — Civil Structure Test Tech{% endblock %}
+{% block content %}
+<h1 class="mb-4">Request a Quote</h1>
+<form method="POST" action="{{ url_for('services') }}">
+  {{ form.hidden_tag() }}
+  <div class="row g-3">
+    <div class="col-md-6">
+      {{ form.company.label(class="form-label") }}
+      {{ form.company(class="form-control", placeholder="Company name") }}
+      {% for e in form.company.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+    </div>
+    <div class="col-md-6">
+      {{ form.name.label(class="form-label") }}
+      {{ form.name(class="form-control", placeholder="Contact person") }}
+      {% for e in form.name.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+    </div>
+    <div class="col-md-6">
+      {{ form.email.label(class="form-label") }}
+      {{ form.email(class="form-control", placeholder="Email address") }}
+      {% for e in form.email.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+    </div>
+    <div class="col-md-6">
+      {{ form.phone.label(class="form-label") }}
+      {{ form.phone(class="form-control", placeholder="Phone (optional)") }}
+      {% for e in form.phone.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+    </div>
+    <div class="col-md-6">
+      {{ form.service_type.label(class="form-label") }}
+      {{ form.service_type(class="form-select") }}
+      {% for e in form.service_type.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+    </div>
+    <div class="col-12">
+      {{ form.project_details.label(class="form-label") }}
+      {{ form.project_details(class="form-control", rows="6", placeholder="Project scope, load ranges, schedule, standards...") }}
+      {% for e in form.project_details.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+    </div>
+  </div>
+  <button class="btn btn-primary mt-3">Submit Request</button>
+</form>
+{% endblock %}

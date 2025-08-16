@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Admin — Inquiries{% endblock %}
+{% block content %}
+<h1 class="mb-3">Service Inquiries</h1>
+<table class="table table-striped">
+  <thead><tr><th>ID</th><th>Company</th><th>Contact</th><th>Email</th><th>Service</th><th>When</th></tr></thead>
+  <tbody>
+    {% for i in inquiries %}
+    <tr><td>{{ i.id }}</td><td>{{ i.company }}</td><td>{{ i.contact_name }}</td><td>{{ i.email }}</td><td>{{ i.service_type }}</td><td>{{ i.submitted_at }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

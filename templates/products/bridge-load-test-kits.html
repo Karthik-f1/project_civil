@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.title }} — Civil Structure Test Tech{% endblock %}
+{% block content %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ url_for('catalog', cat_slug=category.slug) }}">{{ category.name }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
+  </ol>
+</nav>
+
+<div class="row g-4">
+  <aside class="col-lg-3 sidebar">
+    <div class="list-group mb-4">
+      {% for sib in siblings %}
+      <a class="list-group-item list-group-item-action" href="{{ url_for('product_detail', slug=sib.slug) }}">{{ sib.title }}</a>
+      {% endfor %}
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Need a custom setup?</h6>
+        <p class="small text-muted">Tell us about your project constraints and we’ll configure a kit.</p>
+        <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm w-100">Request a Quote</a>
+      </div>
+    </div>
+  </aside>
+
+  <section class="col-lg-9">
+    <div class="card mb-4">
+      <img src="{{ product.hero }}" class="card-img-top" alt="{{ product.title }} hero">
+      <div class="card-body">
+        <h1 class="h3">{{ product.title }}</h1>
+        <p class="text-muted">{{ product.lead }}</p>
+        <ul>
+          {% for b in product.bullets %}<li>{{ b }}</li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="h5">Specifications</h2>
+        <table class="table specs-table">
+          <tbody>
+            {% for k, v in product.specs.items() %}
+              <tr><td class="fw-semibold" style="width: 35%">{{ k }}</td><td>{{ v }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      {% for img in product.gallery %}
+      <div class="col-md-6">
+        <img src="{{ img }}" class="img-fluid rounded shadow-sm" alt="gallery">
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="card mt-4">
+      <div class="card-body">
+        <h2 class="h5">Frequently Asked Questions</h2>
+        <div class="accordion" id="faq">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q1h"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What’s included in a standard kit?</button></h2>
+            <div id="q1" class="accordion-collapse collapse show"><div class="accordion-body">Core hardware, sensors, DAQ/logger, cables/hoses, and a rugged case. See the specs for exact contents.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q2h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Do you offer on-site commissioning?</button></h2>
+            <div id="q2" class="accordion-collapse collapse"><div class="accordion-body">Yes. We provide setup, calibration check, and technician training across North America.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

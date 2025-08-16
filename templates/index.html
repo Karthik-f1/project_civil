@@ -1,0 +1,316 @@
+{% extends 'base.html' %}
+{% block title %}Civil Structure Test Tech — Specialized Testing Equipment for Civil Structures{% endblock %}
+{% block content %}
+
+<style>
+/* Global transparent background for full homepage */
+body {
+  background: 
+    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+    url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80')
+    center/cover fixed no-repeat;
+}
+
+/* Typography & General */
+h1, h2, h3, h4, h5 { font-family: "Poppins", sans-serif; font-weight: 600; }
+p, li { font-family: "Open Sans", sans-serif; line-height: 1.7; }
+section { padding: 70px 0; }
+.bg-overlay {
+  background: rgba(0,0,0,0.65);
+  border-radius: 14px;
+  padding: 25px;
+}
+.feature-box, .card {
+  transition: transform 0.3s ease;
+}
+.feature-box:hover, .card:hover {
+  transform: translateY(-6px);
+}
+.card { border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.card img { border-radius: 12px; height: 220px; object-fit: cover; }
+
+/* Section headings */
+.section-title {
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-align: center;
+}
+.divider {
+  width: 60px;
+  height: 4px;
+  background: #f0ad4e;
+  margin: 0 auto 40px;
+  border-radius: 2px;
+}
+
+/* Industries Served */
+.industries {
+  background: #fff;
+}
+.industries h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.industries .industry-box {
+  text-align: center;
+  padding: 20px;
+}
+.industries img {
+  width: 80px;
+  margin-bottom: 15px;
+}
+.industries p {
+  font-weight: 500;
+}
+
+/* Case Studies */
+.case-studies {
+  background:linear-gradient(rgba(255,255,255,0.85),rgba(255,255,255,0.85)),url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80') center/cover fixed no-repeat;
+}
+.case-studies .card {
+  border: none;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(6px);
+}
+
+/* Key Features highlight text */
+.key-feature h5 {
+  color: #ffd966;
+}
+.key-feature p {
+  color: #f1f1f1;
+}
+</style>
+
+<!-- HERO -->
+<section style="background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url('/static/images/hero-structure.jpg') center/cover no-repeat; color:white; text-align:center; padding:120px 20px;">
+  <div class="container">
+    <h1 class="display-5 fw-bold mb-3">Civil Structure Test Tech</h1>
+    <p class="lead">Specialized Testing Equipment for Civil Structures</p>
+    <p class="mb-4">Fast, Accurate Structural Testing for Any Jobsite — Identify structural performance, subsurface risks, and material quality with user-friendly, field-ready testing systems.</p>
+    <a href="{{ url_for('contact') }}" class="btn btn-warning btn-lg me-2 shadow"><i class="fas fa-comments me-2"></i>Contact Us</a>
+    <a href="{{ url_for('catalog', cat_slug='load-testing') }}" class="btn btn-outline-light btn-lg shadow"><i class="fas fa-cubes me-2"></i>Browse Products</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section>
+  <div class="container">
+    <p class="text-center">Structural failures and hidden defects create serious safety and cost risks. Our field-ready and lab-capable test systems deliver rapid, reliable insights without the need for complex lab setups. We focus exclusively on civil engineering needs—bridges, buildings, transportation, utilities, and foundations.</p>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="bg-light">
+  <div class="container text-center">
+    <h2 class="section-title">🛠️ Our Products</h2>
+    <div class="divider"></div>
+    <div class="row g-4">
+      {% for item in featured %}
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ item.hero }}" class="card-img-top" alt="{{ item.title }}">
+          <div class="card-body">
+            <h3 class="h6">{{ item.title }}</h3>
+            <p class="small text-muted">{{ item.lead }}</p>
+            <a href="{{ url_for('product_detail', slug=item.slug) }}" class="btn btn-primary btn-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CORE COMPONENTS -->
+<section>
+  <div class="container">
+    <h2 class="section-title">⚙️ Core Components of Civil Testing Systems</h2>
+    <div class="divider"></div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="h6"><i class="fas fa-microchip text-primary me-2"></i> Hardware</h3>
+          <ul class="small mb-0">
+            <li>Calibrated load cells, LVDTs, strain gauges, accelerometers</li>
+            <li>Hydraulic power packs and reaction frames</li>
+            <li>NDT instruments: GPR, UPV, covermeters</li>
+            <li>Rugged enclosures and field cabling</li>
+          </ul>
+        </div></div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="h6"><i class="fas fa-laptop-code text-success me-2"></i> Software</h3>
+          <ul class="small mb-0">
+            <li>Real-time dashboards and analytics</li>
+            <li>Field data logging and export (CSV/PDF/JSON)</li>
+            <li>Calibration and report templates</li>
+            <li>Threshold alerts for strain, displacement, vibration</li>
+          </ul>
+        </div></div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="h6"><i class="fas fa-cloud text-info me-2"></i> Cloud Services</h3>
+          <ul class="small mb-0">
+            <li>Secure backup and remote access</li>
+            <li>Shareable compliance reports</li>
+            <li>APIs for BIM/CMMS/asset systems</li>
+            <li>Mobile dashboards for field teams</li>
+          </ul>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY FEATURES -->
+<section style="background:url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; position:relative; color:white;">
+  <div style="background:rgba(0,0,0,0.7); padding:70px 0;">
+    <div class="container text-center">
+      <h2 class="section-title">🔑 Key Features</h2>
+      <div class="divider bg-white"></div>
+      <div class="row g-4 mt-4">
+
+        <div class="col-md-4">
+          <div class="card bg-transparent border-0 text-white h-100 feature-box key-feature">
+            <div class="card-body">
+              <i class="fas fa-stopwatch fa-2x mb-3 text-warning"></i>
+              <h5 class="fw-bold">Rapid On-Site Testing</h5>
+              <p class="small">Get actionable results in minutes, minimizing downtime and delays on site.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card bg-transparent border-0 text-white h-100 feature-box key-feature">
+            <div class="card-body">
+              <i class="fas fa-wave-square fa-2x mb-3 text-info"></i>
+              <h5 class="fw-bold">High Sensitivity Sensors</h5>
+              <p class="small">Measure strain, displacement, vibration, and EM signals with precision sensors.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card bg-transparent border-0 text-white h-100 feature-box key-feature">
+            <div class="card-body">
+              <i class="fas fa-toolbox fa-2x mb-3 text-success"></i>
+              <h5 class="fw-bold">Jobsite-Ready Kits</h5>
+              <p class="small">No lab required — portable, rugged systems built for real construction environments.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card bg-transparent border-0 text-white h-100 feature-box key-feature">
+            <div class="card-body">
+              <i class="fas fa-layer-group fa-2x mb-3 text-danger"></i>
+              <h5 class="fw-bold">Multi-Material Coverage</h5>
+              <p class="small">Test concrete, steel, asphalt, soil, and rock with the same system setup.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card bg-transparent border-0 text-white h-100 feature-box key-feature">
+            <div class="card-body">
+              <i class="fas fa-balance-scale fa-2x mb-3 text-primary"></i>
+              <h5 class="fw-bold">Standards Aligned</h5>
+              <p class="small">Test methods compliant with ASTM, ACI, AASHTO, and IS standards for global use.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card bg-transparent border-0 text-white h-100 feature-box key-feature">
+            <div class="card-body">
+              <i class="fas fa-cloud-upload-alt fa-2x mb-3 text-light"></i>
+              <h5 class="fw-bold">Digital & Cloud Ready</h5>
+              <p class="small">Seamless data logging, mobile dashboards, and cloud-based reporting built in.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES SERVED -->
+<section class="industries">
+  <div class="container">
+    <h2>🏭 Industries Served</h2>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="industry-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/2933/2933245.png" alt="Construction">
+          <p>Construction</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="industry-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/2966/2966481.png" alt="Infrastructure">
+          <p>Infrastructure</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="industry-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135687.png" alt="Education">
+          <p>Education & Research</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="industry-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/554/554875.png" alt="Manufacturing">
+          <p>Manufacturing</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="case-studies">
+  <div class="container">
+    <h2 class="section-title">💡 Case Studies</h2>
+    <div class="row g-3 small">
+      <div class="col-md-4">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="h6">Bridge Proof-Load Validation (USA)</h3>
+          <p class="mb-0">A county agency validated bridge capacity using our load kits and DAQ, reducing lane closure time and targeting retrofit scope.</p>
+        </div></div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="h6">University Lab Curriculum (Canada)</h3>
+          <p class="mb-0">Civil students used UPV and covermeters to evaluate concrete specimens and correlate velocity with compressive strength.</p>
+        </div></div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100"><div class="card-body">
+          <h3 class="h6">Subgrade Modulus Study (India)</h3>
+          <p class="mb-0">A contractor deployed plate load testers to characterize subgrade stiffness for roadway design optimization.</p>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="mt-5 text-center">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-2">Need help choosing the right tester?</h2>
+      <p class="small text-muted">Our engineers can help you scope sensors, DAQ, and reporting to match your project requirements.</p>
+      <a href="{{ url_for('contact') }}" class="btn btn-primary me-2">Contact Us</a>
+      <a href="{{ url_for('services') }}" class="btn btn-outline-primary">Request a Quote</a>
+    </div>
+  </div>
+  <p class="mt-4 small">
+    📍 <a href="https://www.google.com/maps/dir/%20/25.728578,-80.241901" target="_blank">3350 Virginia Street, Miami, FL 33133</a>
+  </p>
+</section>
+
+{% endblock %}
